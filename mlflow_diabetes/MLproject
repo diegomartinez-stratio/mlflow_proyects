@@ -1,0 +1,14 @@
+name: diabetes2
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      training_data: {type: string}
+      alpha: {type: float, default: 0.01}
+      l1_ratio: {type: float, default: 0.1}
+      output_column_name: {type: string, default: prediction}
+      output_column_type: {type: string, default: DoubleType} 
+
+    command: "python train_diabetes.py  --alpha={alpha} --l1_ratio={l1_ratio} --training_data={training_data}"
